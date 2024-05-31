@@ -1,0 +1,11 @@
+{
+    "name": "job-application-handler",
+    "version": "1.0.0",
+    "description": "Lambda function for job application handler",
+    "main": "index.js",
+    "dependencies": {
+      "aws-sdk": "^2.814.0",
+      "uuid": "^8.3.2"
+    }
+  }
+  
