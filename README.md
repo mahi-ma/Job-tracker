@@ -9,6 +9,7 @@ Remember a time when you forgot to follow up on a application on time and now af
 - Recurring flag enables the user to get recurring notifications for some jobs, just set flag to true from frontend when making api call
 - The API gateway is responsible to direct the api request to appropriate lambda function
 - The lambda can be run manually or with event bridge rule to get the notifications and run the script every day at some decided time
+- Tech Stack used: Javascript, AWS CDK, HTML, CSS
 
 ### To run the backend code and create AWS stack, just run the command "cdk deploy"
 
