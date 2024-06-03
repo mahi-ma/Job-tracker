@@ -4,10 +4,11 @@ import {
   ScanCommand,
   PutCommand,
   DeleteCommand,
+  UpdateCommand
 } from "@aws-sdk/lib-dynamodb";
 import { SNSClient, PublishCommand } from "@aws-sdk/client-sns";
 
-const tableName = process.env.tableName;
+const tableName = process.env.TABLE_NAME;
 const snsTopicARN = process.env.SNS_TOPIC_ARN;
 
 const dynamoDbClient = new DynamoDBClient({});

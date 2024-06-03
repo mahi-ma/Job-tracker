@@ -39,7 +39,7 @@ export class JobTrackerStack extends Stack {
 
     // Create Lambda function for inserting the data
     const handler = new lambda.Function(this, 'JobApplicationHandler', {
-      runtime: lambda.Runtime.NODEJS_18_X,
+      runtime: lambda.Runtime.NODEJS_20_X,
       code: lambda.Code.fromAsset('lambda'),
       handler: 'index.handler',
       environment: {

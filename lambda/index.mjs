@@ -1,8 +1,12 @@
-const AWS = require('aws-sdk');
-const dynamodb = new AWS.DynamoDB.DocumentClient();
-const { v4: uuidv4 } = require('uuid');
+import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import { DynamoDBDocumentClient, PutCommand } from '@aws-sdk/lib-dynamodb';
+import { v4 as uuidv4 } from 'uuid';
 
-exports.handler = async (event) => {
+// Create DynamoDB client
+const dynamoDbClient = new DynamoDBClient({});
+const ddbDocClient = DynamoDBDocumentClient.from(dynamoDbClient);
+
+export const handler = async (event) => {
   const body = JSON.parse(event.body);
   const { title, link, followUpTime, recurring } = body;
   const applicationId = uuidv4();
@@ -20,7 +24,9 @@ exports.handler = async (event) => {
   };
 
   try {
-    await dynamodb.put(params).promise();
+    const command = new PutCommand(params);
+    await ddbDocClient.send(command);
+
     return {
       statusCode: 201,
       headers: {
@@ -30,6 +36,7 @@ exports.handler = async (event) => {
       body: JSON.stringify({ message: 'Job application added successfully', applicationId: applicationId })
     };
   } catch (error) {
+    console.error('Error:', error);
     return {
       statusCode: 500,
       headers: {
