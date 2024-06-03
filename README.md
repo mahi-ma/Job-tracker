@@ -11,9 +11,19 @@ Remember a time when you forgot to follow up on a application on time and now af
 - The lambda can be run manually or with event bridge rule to get the notifications and run the script every day at some decided time
 - Tech Stack used: Javascript, AWS CDK, HTML, CSS
 
-### To run the backend code and create AWS stack, just run the command "cdk deploy"
+### Step 1: Install Dependencies
+Run the following command to install the required dependencies:
+```npm i```
 
-### To run the frontend, update API_URL from API gateway from AWS in index.html file and run the file
+### Step 2:Running backend code
+- Run ```cdk deploy``` -> if you face issues with AWS credentials, set the credentials using ```aws configure``` command
+- Go to your AWS account and click on your profile (top right corner), go to security credentials -> go to create access keys -> create a access key and enter the values in configure command
+- See this in order to install AWS CLI to run ```aws configure``` command -> https://docs.aws.amazon.com/rekognition/latest/dg/setup-awscli-sdk.html
+- Once everything is set up, ```cdk deploy``` command should work
+
+## Step 3: running frontend code
+- For frontend, simply go to index.html and update API_URL from API gateway from AWS in index.html file inside frontend repo and run the file
+- Change API_URL variable value with new url generated from cdk
 
 The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
