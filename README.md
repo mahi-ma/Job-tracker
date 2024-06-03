@@ -25,6 +25,13 @@ Run the following command to install the required dependencies:
 - For frontend, simply go to index.html and update API_URL from API gateway from AWS in index.html file inside frontend repo and run the file
 - Change API_URL variable value with new url generated from cdk
 
+### Common Issue While running cdk deploy command
+- error =  "cdk is not defined"
+Now, if you do ```npm list -g --depth=0```
+you will see cdk 2 version is installed, so simply run
+```alias cdk="npx aws-cdk@2.x"```
+and cdk command should work now
+
 The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
 ## Useful commands
